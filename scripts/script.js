@@ -1,9 +1,12 @@
+// IMPORTANTE: las partes del código "comentadas" se dejaron a propósito ya que quiero mostrar lo aprendido y puesto en práctica
+// pero por otro lado, tuve que reemplazarlas por programación con AJAX y Fetch para cumplir con los requisitos de la entrega
+
 // Definición de variables globales
 let arrayDispositivos;
 let arrayLugares;
 let arrayResultados = [];
 
-crearDevices();
+crearDevices(); //está hecho así para evitar la carga del usuario 
 crearPlaces();
 
 function continuarRemoto() {
@@ -45,7 +48,7 @@ function cargarTiempo2() {
         Swal.fire({
             icon: 'error',
             title: 'Pecado Capital',
-            text: 'Soy el cartel rabioso, sos jodido eh!. Por el bien de la humanidad colocá solo números enteros, si papito?',
+            text: 'Soy el cartel rabioso, sos jodido eh!. Por el bien de la humanidad colocá solo números enteros, por favor!',
         });
         return;
     }
@@ -81,10 +84,11 @@ function mostrarResultados() {
     resultadoDiv.innerHTML = '';
 
     // Recuperar objeto del localStorage
+
+
     const usuarioJSON = localStorage.getItem('usuario');
     const usuarioGuardado = JSON.parse(usuarioJSON);
 
-    console.log('Datos del usuario JSON: ' + usuarioJSON); // solo para control en consola
 
     // Mostrar datos del usuario 
     resultadoDiv.innerHTML += '<h2>Datos del Usuario:</h2>';
@@ -96,6 +100,8 @@ function mostrarResultados() {
         resultadoDiv.appendChild(p);
     }
     resultadoDiv.innerHTML += '</ul>';
+    resultadoDiv.innerHTML += '<br>';
+
 
     // Mostrar datos de dispositivos
     resultadoDiv.innerHTML += '<h2>Datos de dispositivos:</h2>';
@@ -105,6 +111,8 @@ function mostrarResultados() {
         resultadoDiv.innerHTML += '<li>' + infoDispositivo.marca + ' ' + infoDispositivo.modelo + ' (' + infoDispositivo.tipo + '): ' + infoDispositivo.tiempo + ' horas</li>';
     }
     resultadoDiv.innerHTML += '</ul>';
+    resultadoDiv.innerHTML += '<br>';
+
 
     // Mostrar datos de lugares
     resultadoDiv.innerHTML += '<h2>Datos de lugares:</h2>';
@@ -114,17 +122,22 @@ function mostrarResultados() {
         resultadoDiv.innerHTML += '<li>' + infoLugar.lugar + ' - Tiempo de uso: ' + infoLugar.tiempo + ' horas</li>';
     }
     resultadoDiv.innerHTML += '</ul>';
+    resultadoDiv.innerHTML += '<br>';
+
 
     // Mostrar resultado final
-    resultadoDiv.innerHTML += '<h2>Resultado del puesto de trabajo:</h2>';
-    resultadoDiv.innerHTML += '<p>Dispositivos ★★★★☆</p>';
-    resultadoDiv.innerHTML += '<p>Ergonomía ★★☆☆☆</p>';
-    resultadoDiv.innerHTML += '<p>Ambiente ★☆☆☆☆</p>';
-
-    resultadoDiv.innerHTML += '<h2>Calculo detallado sobre el ARRAY (queda para la proxima entrega graficos y cosas bonitas!):</h2>';
+  
+    resultadoDiv.innerHTML += '<h2>Calculo detallado sobre el ARRAY:</h2>';
     resultadoDiv.innerHTML += '<p>Dispositivos: ' + arrayDispositivos.mobile.resultado + '</p>';
     resultadoDiv.innerHTML += '<p>Ergonomía: ' + arrayDispositivos.notebook.resultado + '</p>';
     resultadoDiv.innerHTML += '<p>Ambiente: ' + arrayDispositivos.desktop.resultado + '</p>';
+
+    resultadoDiv.innerHTML += '<br>';
+
+    resultadoDiv.innerHTML += '<h2>Resultado del puesto de trabajo:</h2>';
+    resultadoDiv.innerHTML += '<p>Dispositivos ★★★★☆</p>'; //por ahora la info es estática, no me dió el tiempo para que sea representativa del cálculo.
+    resultadoDiv.innerHTML += '<p>Ergonomía ★★☆☆☆</p>';
+    resultadoDiv.innerHTML += '<p>Ambiente ★☆☆☆☆</p>';
 }
 
 // Creación de arrays de dispositivos
@@ -150,7 +163,8 @@ function crearDevices() {
     };
 }
 
-// Creación de arrays de lugares
+// Creación de arrays de lugares (mantengo el código para que un futuro el usuario complete los datos)
+// Esta parte está siendo reemplazada por el archivo places.json
 function crearPlaces() {
     class userPlaces {
         constructor(lugar, tiempo) {

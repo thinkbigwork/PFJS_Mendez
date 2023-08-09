@@ -106,12 +106,12 @@ function cerrarSesion() {
 window.onload = function() {
     revisarUsuario();
 
-    // Evento para manejar el botón de inicio de sesión
+    // Manejo del botón de inicio de sesión
     document.getElementById('btnIniciarSesion').addEventListener('click', function() {
         iniciarSesion();
     });
 
-    // Evento para manejar el botón de cierre de sesión
+    // Manejo del botón de cierre de sesión
     document.getElementById('btnCerrarSesion').addEventListener('click', function() {
         cerrarSesion();
     });
