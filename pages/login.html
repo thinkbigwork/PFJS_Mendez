@@ -33,7 +33,10 @@
            <div class="collapse navbar-collapse" id="navbarSupportedContent">
                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0"> 
                    <li class="nav-item">
-                       <a class="nav-link" href="./evaluar.html">Evaluar</a>
+                       <a class="nav-link" id="evalDescLogin" style="cursor: wait; color: gray; display: block;">Evaluar</a>
+                   </li>
+                   <li class="nav-item">
+                       <a class="nav-link" href="./evaluar.html" id="evalConectLogin" style="display: none;">Evaluar</a>
                    </li>
                    <li class="nav-item">
                        <a class="nav-link" href="./nosotros.html">Nosotros</a>
@@ -42,7 +45,10 @@
                        <a class="nav-link" href="./contacto.html">Contacto</a>
                    </li>
                    <li class="nav-item">
-                       <a class="nav-link" href="#">Login</a>
+                       <a class="nav-link" href="#" id="logDescLogin" style="display: block;">Login</a>
+                   </li>
+                   <li class="nav-item">
+                    <a class="nav-link" href="#" id="logConectLogin" style="display: none;">Logout</a>
                    </li>
                    </ul>
            </div>
@@ -73,7 +79,7 @@
                   <p id="errorPassword" style="color: red; display: none;">Por favor, ingresa una contraseña valida.</p>
                 </div>
                 <div class="text-center">
-                  <button onclick="iniciarCuestionario()">Iniciar</button>
+                  <button onclick="iniciarSesion()">Iniciar</button>
                 </div>
                 <div class="text-center">
                   <div>
@@ -91,11 +97,15 @@
 
 
                   <section class="login">
-                    <div class="text-center">
-                      <div id="pregunta-remoto" style="display: none;">
+                    <div class="form">
+                      <div class="text-center" id="loginExitoso" style="display: none;">
                         <h1>Login exitoso</h1>     
-
-                        <p id="bienvenida" style="color: blue; display: none;"></p>
+                        <p id="bienvenida" style="color: #ff39b3; display: none;"></p>
+                        <a class="button" type="submit" href="./evaluar.html">Evaluar</a>
+                        <br/>
+                        <br/>
+                        <p>Si deseas puedes cerrar sesión</p>
+                        <button onclick="cerrarSesion()">Logout</button>
                        </div>
                   </section>
 
@@ -129,7 +139,8 @@
     </div> 
   </footer>
   <!-- fin footer-->
-    <script src="../script.js"></script>
+    <script src="../scripts/script.js"></script>
+    <script src="../scripts/usuario.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
 

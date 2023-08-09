@@ -35,17 +35,26 @@
             <!-- aca se cambia la dire de la ul -->
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0"> <!-- REVISAR ESTOS PARAMETROS -->
               <li class="nav-item">
-                <a class="nav-link" href="./pages/evaluar.html">Evaluar</a>
+                <a class="nav-link" id="evalDescIndex" style="cursor: wait; color: gray; display: block;">Evaluar</a>
+            </li>
+              <li class="nav-item">
+                  <a class="nav-link" href=".pages/evaluar.html" id="evalConectIndex" style="display: none;">Evaluar</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./pages/nosotros.html">Nosotros</a>
+                  <a class="nav-link" href="./pages/evaluar.html" id="menuConect" style="display: none;">Evaluar</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./pages/contacto.html">Contacto</a>
+                 <a class="nav-link" href="./pages/nosotros.html">Nosotros</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./pages/login.html">Login</a>
+                 <a class="nav-link" href="./pages/contacto.html">Contacto</a>
               </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="./pages/login.html" id="menuDescLogIndex" style="display: block;">Login</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="./pages/login.html" id="menuConectLogIndex" style="display: none;">Logout</a>
+               </li>
             </ul>
           </div>
         </div>
@@ -146,9 +155,10 @@
       </div> 
     </footer>
     <!-- fin footer-->  
-    <script src="script.js"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/usuario.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
 
-</body> <!-- termina lo que el usuario ve -->
+</body>
 </html>

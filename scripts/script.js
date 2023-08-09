@@ -1,96 +1,10 @@
 // Definición de variables globales
-let nombre = '';
-let password = '';
-let email = '';
 let arrayDispositivos;
 let arrayLugares;
 let arrayResultados = [];
 
 crearDevices();
 crearPlaces();
-
-// Función de inicio
-function iniciarCuestionario() {
-    nombre = document.getElementById('nombreInput').value.trim();
-    email = document.getElementById('emailInput').value.trim();
-    password = document.getElementById('passwordInput').value.trim();
-
-    if (nombre === '' || password === '' || email === '') {
-        Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: 'Por favor, completa todos los campos.',
-        });
-        return;
-    }
-    
-    if (!validateEmail(email)) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: 'El email no es válido. El formato debe ser nombre@texto.com',
-        });
-        return;
-    }
-
-        function validateEmail(casilla){
-            var validarEmail =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
-            if( validarEmail.test(casilla) ){
-                return true;
-            }else{
-                return false;
-            } 
-          /*   validarEmail.test(casilla)?true:false; */ //no está funcionado, revisar
-        }
-    
-    if (password.length < 5) {
-        Swal.fire({
-            icon: 'error',
-            title: 'Error',
-            text: 'La contraseña debe tener al menos 5 caracteres.',
-        });
-        return;
-    }
-
-    Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Tus datos fueron cargados',
-        showConfirmButton: false,
-        timer: 1500
-    })
-    
-
-    document.getElementById('errorNombre').style.display = 'none';
-    document.getElementById('errorEmail').style.display = 'none';
-    document.getElementById('errorPassword').style.display = 'none';
-
-    usuario();
-    document.getElementById('pregunta-remoto').style.display = 'block';
-}
-
-function usuario() {
-    nombre = nombre.toUpperCase();
-    document.getElementById('nombreInput').disabled = true;
-    document.getElementById('emailInput').disabled = true;
-    document.getElementById('passwordInput').disabled = true;
-    document.getElementById('bienvenida').innerText = `¡Hola ${nombre} ahora puedes comenzar a evaluar tu puesto de trabajo!`;
-    document.getElementById('bienvenida').style.display = 'block';
-    document.getElementById('form-head').style.display = 'none';
-
-
-    // Guardar datos de usuario en el localStorage
-    const usuario = {
-        nombre: nombre,
-        password: password,
-        email: email,
-    };
-    
-    const usuarioJSON = JSON.stringify(usuario);
-    localStorage.setItem('usuario', usuarioJSON);
-}
-
-
 
 function continuarRemoto() {
     const respuestaRemoto = document.querySelector('input[name="remoto"]:checked').value;
@@ -277,3 +191,7 @@ function calcularDispositivos(mob, not, desk) {
     let prom = (mob + not + desk) / 3;
     return prom;
 }
+
+
+
+
