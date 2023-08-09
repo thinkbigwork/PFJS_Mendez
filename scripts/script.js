@@ -7,6 +7,11 @@ crearDevices();
 crearPlaces();
 
 function continuarRemoto() {
+    document.getElementById('pregunta-remoto').style.display = 'none';
+    document.getElementById('boton-continuar').style.display = 'none';
+    document.getElementById('intro').style.display = 'none';
+    document.getElementById('seccion2').style.display = 'block';
+
     const respuestaRemoto = document.querySelector('input[name="remoto"]:checked').value;
     document.getElementById('pregunta-remoto').style.display = 'none';
     if (respuestaRemoto === 'SI') {
@@ -18,9 +23,21 @@ function continuarRemoto() {
 
 function mensaje() {
     document.getElementById('mensaje').style.display = 'block';
+    document.getElementById('pregunta-remoto').style.display = 'none';
+    document.getElementById('boton-continuar').style.display = 'none';
+    document.getElementById('intro').style.display = 'none';
+    document.getElementById('seccion2').style.display = 'none';
+
 }
 
-function cargarTiempo() {
+function cargarTiempo1(){
+    document.getElementById('seccion2').style.display = 'none';
+    cargarTiempo2()
+  }
+
+function cargarTiempo2() {
+    document.getElementById("pregunta-dispositivos").style.display = "block";
+
     const tiempoCelular = document.getElementById('tiempoCelular').value;
     const tiempoNotebook = document.getElementById('tiempoNotebook').value;
     const tiempoPc = document.getElementById('tiempoPc').value;
@@ -59,6 +76,8 @@ function validarEntero(valor) {
 }
 
 function mostrarResultados() {
+    document.getElementById("pregunta-dispositivos").style.display = "none";
+
     const resultadoDiv = document.getElementById('resultado');
     resultadoDiv.innerHTML = '';
 
@@ -66,7 +85,7 @@ function mostrarResultados() {
     const usuarioJSON = localStorage.getItem('usuario');
     const usuarioGuardado = JSON.parse(usuarioJSON);
 
-    console.log('Datos del usuario JSON: ' + usuarioJSON);
+    console.log('Datos del usuario JSON: ' + usuarioJSON); // solo para control en consola
 
     // Mostrar datos del usuario 
     resultadoDiv.innerHTML += '<h2>Datos del Usuario:</h2>';

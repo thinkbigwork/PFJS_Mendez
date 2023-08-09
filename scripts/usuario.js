@@ -81,17 +81,8 @@ function iniciarSesion() {
       timer: 1500
   })
 
-  // en caso de que no funcione SweetAlert
-/*   document.getElementById('nombreInput').disabled = true;
-  document.getElementById('emailInput').disabled = true;
-  document.getElementById('passwordInput').disabled = true;
-  document.getElementById('errorNombre').style.display = 'none';
-  document.getElementById('errorEmail').style.display = 'none';
-  document.getElementById('errorPassword').style.display = 'none'; */
-
   loginExitoso();
 }
-
 
 function loginExitoso() {
   document.getElementById('bienvenida').innerText = `¡Hola ${nombre} ya puedes comenzar a evaluar tu puesto de trabajo!`;

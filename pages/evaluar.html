@@ -65,75 +65,104 @@
         <div class="col">
           <div class="paragraphFullWidth texts">
             <h1>Evaluar</h1>
-            <p>Hacer un diagnóstico sobre las condiciones laborales dentro de nuestro propio hogar nos permite conocer cuáles son las problemáticas y las posibilidades de mejora para poder trabajar más eficientemente, de forma segura y sobre todo cuidar nuestra salud mental y física y cuidar el medio ambiente.</p> 
+            <p id="intro" style="display: block;">Hacer un diagnóstico sobre las condiciones laborales dentro de nuestro propio hogar nos permite conocer cuáles son las problemáticas y las posibilidades de mejora para poder trabajar más eficientemente, de forma segura y sobre todo cuidar nuestra salud mental y física y cuidar el medio ambiente.</p> 
         </div>
         </div>
     </section>
-        <section  class="container">
-          <div class="pregunta bgGray"> 
-              <label for="pregunta1">1- Tu silla cuenta con apoyo lumbar, apoya pies, apoya brazos, apoya cabeza y es basculante?:</label>
-              <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="pregunta1" id="pregunta1_si" value="SI">
-              <label class="form-check-label" for="pregunta1_si">SI</label>
-              </div>
-              <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="pregunta1" id="pregunta1_no" value="NO">
-              <label class="form-check-label" for="pregunta1_no">NO</label>
-              </div>
-              <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="pregunta1" id="pregunta1_ns" value="N/S">
-              <label class="form-check-label" for="pregunta1_ns">N/S</label>
-              </div>
-         </div>
+        <section class="container" id="seccion1" style="display: block;">
+          <div class="pregunta bgGray" id="pregunta-remoto" style="display: block;"> 
+            <label for="remoto">¿Trabajas en forma remota?</label>
+            <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="remoto" id="remoto_si" value="SI">
+            <label class="form-check-label" for="remoto_si">SI</label>
+            </div>
+            <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="remoto" id="remoto_no" value="NO">
+            <label class="form-check-label" for="remoto_no">NO</label>
+            </div>
+          </div>
+          <div class="pregunta" id="boton-continuar">
+            <button onclick="continuarRemoto()">Continuar</button>
+          </div>
 
-         <div class="pregunta"> 
-            <label for="pregunta1">2- Tu espacio de trabajo cuenta con buen nivel de iluminación, y en tu monitor se evitan los reflejos?:</label>
-            <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="pregunta1" id="pregunta1_si" value="SI">
-            <label class="form-check-label" for="pregunta1_si">SI</label>
-            </div>
-            <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="pregunta1" id="pregunta1_no" value="NO">
-            <label class="form-check-label" for="pregunta1_no">NO</label>
-            </div>
-            <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="pregunta1" id="pregunta1_ns" value="N/S">
-            <label class="form-check-label" for="pregunta1_ns">N/S</label>
-            </div>
+          <div id="mensaje" style="display: none;">
+            <p>Entonces, por el momento no tenemos información para mostrarte</p>
+            <a class="button" type="submit" href="./evaluar.html">Volver a empezar</a>
           </div>
-          <div class="pregunta bgGray"> 
-              <label for="pregunta1">3- ¿Tu sistema de conexión eléctrica cuenta con la debida protección para evitar accidentes?:</label>
+
+
+          <section  class="container" id="seccion2" style="display: none;">
+            <div class="pregunta bgGray"> 
+                <label for="pregunta1">Tu silla cuenta con apoyo lumbar, apoya pies, apoya brazos, apoya cabeza y es basculante?:</label>
+                <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="pregunta1" id="pregunta1_si" value="SI">
+                <label class="form-check-label" for="pregunta1_si">SI</label>
+                </div>
+                <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="pregunta1" id="pregunta1_no" value="NO">
+                <label class="form-check-label" for="pregunta1_no">NO</label>
+                </div>
+           </div>
+  
+           <div class="pregunta"> 
+              <label for="pregunta2">Tu espacio de trabajo cuenta con buen nivel de iluminación natural durante el día? (9 a 18hs):</label>
               <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="pregunta1" id="pregunta1_si" value="SI">
-              <label class="form-check-label" for="pregunta1_si">SI</label>
+              <input class="form-check-input" type="radio" name="pregunta2" id="pregunta2_si" value="SI">
+              <label class="form-check-label" for="pregunta2_si">SI</label>
               </div>
               <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="pregunta1" id="pregunta1_no" value="NO">
-              <label class="form-check-label" for="pregunta1_no">NO</label>
+              <input class="form-check-input" type="radio" name="pregunta2" id="pregunta2_no" value="NO">
+              <label class="form-check-label" for="pregunta2_no">NO</label>
               </div>
-              <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="pregunta1" id="pregunta1_ns" value="N/S">
-              <label class="form-check-label" for="pregunta1_ns">N/S</label>
-              </div>
-          </div>
-          <div class="pregunta"> 
-              <label for="pregunta1">4- Has experimentado dolor de cabeza, de cuello, de espalda, o se te han adormecido las piernas?:</label>
-              <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="pregunta1" id="pregunta1_si" value="SI">
-              <label class="form-check-label" for="pregunta1_si">SI</label>
-              </div>
-              <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="pregunta1" id="pregunta1_no" value="NO">
-              <label class="form-check-label" for="pregunta1_no">NO</label>
-              </div>
-              <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="pregunta1" id="pregunta1_ns" value="N/S">
-              <label class="form-check-label" for="pregunta1_ns">N/S</label>
-              </div>
-          </div>
-          <a class="button" type="submit" href="404.html">Enviar</a>
+            </div>
+            <div class="pregunta bgGray"> 
+                <label for="pregunta3">¿Compartes tu espacio de trabajo con otros miembros de tu familia más de la mitad del día?:</label>
+                <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="pregunta3" id="pregunta3_si" value="SI">
+                <label class="form-check-label" for="pregunta3_si">SI</label>
+                </div>
+                <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="pregunta3" id="pregunta3_no" value="NO">
+                <label class="form-check-label" for="pregunta3_no">NO</label>
+                </div>
+            </div>
+            <div class="pregunta"> 
+                <label for="pregunta4">Has experimentado dolor de cabeza, de cuello, de cervical, o adormecimiento en las piernas?:</label>
+                <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="pregunta4" id="pregunta4_si" value="SI">
+                <label class="form-check-label" for="pregunta4_si">SI</label>
+                </div>
+                <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="pregunta4" id="pregunta4_no" value="NO">
+                <label class="form-check-label" for="pregunta4_no">NO</label>
+                </div>
+            </div>
+            <button onclick="cargarTiempo1()">Continuar</button>
+  
+          </section>
+
+      
+          <div id="pregunta-dispositivos" style="display: none;">
+            <h5>Ingresa el tiempo de uso por día de tus dispositivos:</h5>
+            <p>(solo números enteros, sin puntos ni comas, sino salta cartel rabioso!)</p>
+            <div>
+                <p>Celular: <input type="text" id="tiempoCelular"> </p>
+            </div>
+            <div>
+                <p>Notebook: <input type="text" id="tiempoNotebook"> </p>
+            </div>
+            <div>
+                <p>PC de escritorio: <input type="text" id="tiempoPc"> </p>
+            </div>
+            <button onclick="mostrarResultados()">Guardar y Mostrar Resultados</button>
+         </div>
+        
+         <div id="resultado"></div>
+
 
         </section>
+
+
 
       </main>
 
