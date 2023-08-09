@@ -10,12 +10,11 @@ function continuarRemoto() {
     document.getElementById('pregunta-remoto').style.display = 'none';
     document.getElementById('boton-continuar').style.display = 'none';
     document.getElementById('intro').style.display = 'none';
-    document.getElementById('seccion2').style.display = 'block';
 
     const respuestaRemoto = document.querySelector('input[name="remoto"]:checked').value;
-    document.getElementById('pregunta-remoto').style.display = 'none';
     if (respuestaRemoto === 'SI') {
-        document.getElementById('pregunta-dispositivos').style.display = 'block';
+        document.getElementById('seccion2').style.display = 'block';
+
     } else {
         mensaje();
     }
@@ -32,7 +31,7 @@ function mensaje() {
 
 function cargarTiempo1(){
     document.getElementById('seccion2').style.display = 'none';
-    cargarTiempo2()
+    document.getElementById('pregunta-dispositivos').style.display = 'block';
   }
 
 function cargarTiempo2() {
