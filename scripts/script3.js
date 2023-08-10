@@ -10,31 +10,29 @@ crearDevices(); //está hecho así para evitar la carga del usuario
 crearPlaces();
 
 function continuarRemoto() {
-    document.getElementById('pregunta-remoto').style.display = 'none';
-    document.getElementById('boton-continuar').style.display = 'none';
-    document.getElementById('intro').style.display = 'none';
+    const remotoSi = document.getElementById('remoto_si');
+    const remotoNo = document.getElementById('remoto_no');
 
-    const respuestaRemoto = document.querySelector('input[name="remoto"]:checked').value;
-    console.log(respuestaRemoto);
-    
-    if (respuestaRemoto === '') {
+    if (remotoSi.checked || remotoNo.checked) {
+        document.getElementById('pregunta-remoto').style.display = 'none';
+        document.getElementById('boton-continuar').style.display = 'none';
+        document.getElementById('intro').style.display = 'none';
+
+        const respuestaRemoto = document.querySelector('input[name="remoto"]:checked').value;
+        if (respuestaRemoto === 'SI') {
+            document.getElementById('seccion2').style.display = 'block';
+        } else {
+            mensaje();
+        }
+    } else {
         Swal.fire({
             icon: 'error',
             title: 'Error',
-            text: 'Por favor, elige una opción.',
+            text: 'Por favor, selecciona una opción.',
         });
-        return;
     }
-    if (respuestaRemoto === 'SI') {
-        document.getElementById('seccion2').style.display = 'block';
-
-    }else {
-        mensaje();
-    }
-   
-
-
 }
+
 
 function mensaje() {
     document.getElementById('mensaje').style.display = 'block';
@@ -42,13 +40,44 @@ function mensaje() {
     document.getElementById('boton-continuar').style.display = 'none';
     document.getElementById('intro').style.display = 'none';
     document.getElementById('seccion2').style.display = 'none';
-
 }
 
-function cargarTiempo1(){
-    document.getElementById('seccion2').style.display = 'none';
-    document.getElementById('pregunta-dispositivos').style.display = 'block';
-  }
+function cargarTiempo1() {
+    let respuestasValidas = validarPreguntas();
+    if (!respuestasValidas === 4) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Por favor, selecciona una opción por cada pregunta.',
+        });
+    } else {
+        document.getElementById('seccion2').style.display = 'none';
+        document.getElementById('pregunta-dispositivos').style.display = 'block';
+    }
+}
+
+function validarPreguntas() { //Probando otra forma de validar varios radios!!
+    let contestadas = 0;
+    const respuestaPregunta1 = document.querySelector('input[name="pregunta1"]:checked').value;
+    if (respuestaPregunta1 && respuestaPregunta1 != null) {
+        contestadas++;
+    };
+    const respuestaPregunta2 = document.querySelector('input[name="pregunta2"]:checked').value;
+    if (respuestaPregunta2 && respuestaPregunta2 != null) {
+        contestadas++;
+    };
+    const respuestaPregunta3 = document.querySelector('input[name="pregunta3"]:checked').value;
+    if (respuestaPregunta3 && respuestaPregunta3 != null){
+        contestadas++;
+    };
+    const respuestaPregunta4 = document.querySelector('input[name="pregunta4"]:checked').value;
+    if (respuestaPregunta4 && respuestaPregunta4 != null) {
+        contestadas++;
+    };
+    return contestadas;
+}
+
+
 
 function cargarTiempo2() {
     document.getElementById("pregunta-dispositivos").style.display = "block";
@@ -251,7 +280,3 @@ function calcularDispositivos(mob, not, desk) {
     let prom = (mob + not + desk) / 3;
     return prom;
 }
-
-
-
-
