@@ -116,12 +116,20 @@ function mostrarResultados() {
 
     // Mostrar datos de lugares
     resultadoDiv.innerHTML += '<h2>Datos de lugares:</h2>';
-    resultadoDiv.innerHTML += '<ul>';
-    for (const lugar in arrayLugares) {
-        const infoLugar = arrayLugares[lugar];
-        resultadoDiv.innerHTML += '<li>' + infoLugar.lugar + ' - Tiempo de uso: ' + infoLugar.tiempo + ' horas</li>';
-    }
-    resultadoDiv.innerHTML += '</ul>';
+    fetch('/places.json')
+        .then( (res) => res.json())
+        .then( (data) => {
+
+            data.forEach((lugar) => {
+                const li = document.createElement('li')
+                li.innerHTML = `
+                    <h4>${lugar.nombre}</h4>
+                    <p>${lugar.tiempo} horas</p>
+                    <hr/>
+                `
+                resultadoDiv.append(li)
+            })
+    })
     resultadoDiv.innerHTML += '<br>';
 
 
