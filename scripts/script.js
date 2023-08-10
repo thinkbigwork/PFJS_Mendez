@@ -114,23 +114,7 @@ function mostrarResultados() {
     resultadoDiv.innerHTML += '<br>';
 
 
-    // Mostrar datos de lugares
-    resultadoDiv.innerHTML += '<h2>Datos de lugares:</h2>';
-    fetch('/places.json')
-        .then( (res) => res.json())
-        .then( (data) => {
-
-            data.forEach((lugar) => {
-                const li = document.createElement('li')
-                li.innerHTML = `
-                    <h4>${lugar.nombre}</h4>
-                    <p>${lugar.tiempo} horas</p>
-                    <hr/>
-                `
-                resultadoDiv.append(li)
-            })
-    })
-    resultadoDiv.innerHTML += '<br>';
+    
 
 
     // Mostrar resultado final
@@ -139,13 +123,33 @@ function mostrarResultados() {
     resultadoDiv.innerHTML += '<p>Dispositivos: ' + arrayDispositivos.mobile.resultado + '</p>';
     resultadoDiv.innerHTML += '<p>Ergonomía: ' + arrayDispositivos.notebook.resultado + '</p>';
     resultadoDiv.innerHTML += '<p>Ambiente: ' + arrayDispositivos.desktop.resultado + '</p>';
-
     resultadoDiv.innerHTML += '<br>';
 
     resultadoDiv.innerHTML += '<h2>Resultado del puesto de trabajo:</h2>';
     resultadoDiv.innerHTML += '<p>Dispositivos ★★★★☆</p>'; //por ahora la info es estática, no me dió el tiempo para que sea representativa del cálculo.
     resultadoDiv.innerHTML += '<p>Ergonomía ★★☆☆☆</p>';
     resultadoDiv.innerHTML += '<p>Ambiente ★☆☆☆☆</p>';
+    resultadoDiv.innerHTML += '<br>';
+
+    // Mostrar datos de lugares
+       resultadoDiv.innerHTML += '<h2>Datos de lugares:</h2>';
+       resultadoDiv.innerHTML += '<p>Los resultados anteriores están basados en tu información sobre cantidad de horas por lugar de trabajo:</p>';
+
+       fetch('/places.json')
+           .then( (res) => res.json())
+           .then( (data) => {
+   
+               data.forEach((lugar) => {
+                   const li = document.createElement('li')
+                   li.innerHTML = `
+                       <h4>${lugar.nombre}</h4>
+                       <p>${lugar.tiempo} horas</p>
+                       <hr/>
+                   `
+                   resultadoDiv.append(li)
+               })
+       })
+       resultadoDiv.innerHTML += '<br>';
 }
 
 // Creación de arrays de dispositivos
@@ -160,6 +164,9 @@ function crearDevices() {
         }
     } 
 
+ 
+
+    // Creación de arrays de dispositivos
     const userDevicesMobile = new userDevices("Apple", "iphone", "celular");
     const userDevicesNotebook = new userDevices("Asus", "Satellite", "notebook");
     const userDevicesDesktop = new userDevices("Dell", "Miracle", "desktop");
