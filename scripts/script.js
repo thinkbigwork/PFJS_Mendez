@@ -177,7 +177,7 @@ function mostrarResultados() {
        resultadoDiv.innerHTML += '<h2>Datos de lugares:</h2>';
        resultadoDiv.innerHTML += '<p>Los resultados anteriores están basados en tu información sobre cantidad de horas por lugar de trabajo:</p>';
 
-       fetch('/places.json')
+       fetch('https://raw.githubusercontent.com/thinkbigwork/PFJS_Mendez/main/places.json')
            .then( (res) => res.json())
            .then( (data) => {
    
